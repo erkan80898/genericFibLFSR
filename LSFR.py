@@ -30,12 +30,11 @@ def LFSR(registers, taps, lfsr_size, print_cycle_len=False):
 
     while True:
         cycle_len += 1
-
         bit = registers
         for tap in taps:
             bit ^= (registers >> (tap - 1))
 
-        bit = bit % 2
+        bit = bit & 2
         registers = (registers >> 1) | (bit << (lfsr_size - 1))
         record.append(registers)
         if registers == start_state:
@@ -43,7 +42,7 @@ def LFSR(registers, taps, lfsr_size, print_cycle_len=False):
 
     if print_cycle_len:
         print(cycle_len)
-
     return record
 
+# Example 1
 LFSR(0xAE1F, [13, 12, 2, 3], 16, True)
