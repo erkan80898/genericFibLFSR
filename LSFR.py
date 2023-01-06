@@ -14,7 +14,7 @@ def LFSR(registers, taps, lfsr_size, print_cycle_len=False):
 
     :param registers: a NON-ZERO value to represent the start-state of the register
     :param taps: the bit positions that will affect the MSB
-    :   NOTE: the LSB is automatically a tap - don't include the left-most register as a tap
+    :   NOTE: the right-most flip-flop is automatically a tap - don't include it as a tap
     :param lfsr_size: the size of the LFSR (in bits)
     :param print_cycle_len: optional value to print out the length of the cycle
     :return a list that represents the state changes of the LFSR - from start to finish
